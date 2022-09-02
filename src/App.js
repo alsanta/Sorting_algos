@@ -12,9 +12,6 @@ function App() {
       <div className='App'>
         <h1>Live Algos</h1>
       </div>
-      <Switch>
-        
-      </Switch>
     </BrowserRouter>
   );
 }
