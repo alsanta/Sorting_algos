@@ -9,12 +9,18 @@ import {
 } from "react-router-dom"
 
 function App() {
+  const [temp,setTemp] = useState("");
   const [numbers,setNumbers] = useState("");
 
   const submitHandler = (e) =>{
     e.preventDefault()
-    setNumbers(e.target.value)
-    console.log(numbers);
+    if (temp.length > 0){
+    setNumbers(temp)
+    // console.log(numbers);
+    setTemp("")
+    e.target.reset();
+    }
+
   }
 
   return (
@@ -23,12 +29,14 @@ function App() {
         <h1>Live Algos</h1>
           <form onSubmit={(e) => submitHandler(e)}>
             <label className=''>Numbers:</label>
-            <input className='ms-2' onChange={(e) => setNumbers(e.target.value)}></input>
-            <button className='ms-2'>Submit</button>
+            <input className='ms-2' onChange={(e) => setTemp(e.target.value)}></input>
+            <input className='ms-2' type="submit" value="Submit" />
           </form>
+          <p className='text-danger' >Only numbers seperated by a space</p>
+          <p className=''>{numbers}</p>
       </div>
       <div>
-        <BubbleSort numbers={numbers}></BubbleSort>
+        <BubbleSort className='mt-3' numbers={numbers}></BubbleSort>
       </div>
     </BrowserRouter>
   );
