@@ -1,12 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
-import BubbleSort from './components/BubbleSort';
 import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Link
+  BrowserRouter
 } from "react-router-dom"
+
+// Sort components
+import BubbleSort from './components/BubbleSort';
 
 function App() {
   const [temp,setTemp] = useState("");
@@ -22,6 +21,7 @@ function App() {
     }
 
   }
+  
 
   return (
     <BrowserRouter>
@@ -33,7 +33,7 @@ function App() {
             <input className='ms-2' type="submit" value="Submit" />
           </form>
           <p className='text-danger' >Only numbers seperated by a space</p>
-          <p className=''>{numbers}</p>
+          <p className=''>Original: {numbers}</p>
       </div>
       <div>
         <BubbleSort className='mt-3' numbers={numbers}></BubbleSort>

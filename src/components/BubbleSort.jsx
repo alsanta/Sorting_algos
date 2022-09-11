@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
 const BubbleSort = (props) => {
-//     const [vName,setVName] = useState('');
 //     const history = useHistory();
 //     const {ParamNameFromRoute, otherParam, anotherParam} = useParams();
 
@@ -24,6 +23,17 @@ const stringToArray = string => {
     return output;
 }
 
+const arrayToString = input => {
+    let output = "";
+    for(let i = 0; i < input.length;i++){
+        output += input[i]
+        if(i !== input.length-1){
+            output += " "
+        }
+    }
+    return output
+}
+
 const bubbleSort = numArr => {
     // console.time('Execution Time');
     for (let y = numArr.length-1; y >= 0; y--) {
@@ -35,14 +45,15 @@ const bubbleSort = numArr => {
             }
         }
     }
+    // console.log(numArr);
     // console.timeEnd('Execution Time');
     return numArr;
 }
 
-    return (
-        <div className='d-flex flex-column align-items-center'>
+return (
+    <div className='d-flex flex-column align-items-center'>
             <h1>Bubble Sort</h1>
-            <h2>{bubbleSort(stringToArray(props.numbers))}</h2>
+            <h2>{arrayToString(bubbleSort(stringToArray(props.numbers)))}</h2>
         </div>
     );
 }
