@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
 // import axios from 'axios';
 
-const BubbleSort = (props) => {
+const SelectionSort = (props) => {
+    //     const [vName,setVName] = useState('');
     //     const history = useHistory();
     //     const {ParamNameFromRoute, otherParam, anotherParam} = useParams();
 
@@ -34,28 +35,25 @@ const BubbleSort = (props) => {
         return output
     }
 
-    const bubbleSort = numArr => {
-        // console.time('Execution Time');
-        for (let y = numArr.length - 1; y >= 0; y--) {
-            for (let x = 0; x < numArr.length; x++) {
-                let temp = numArr[x];
-                if (numArr[x] > numArr[x + 1]) {
-                    numArr[x] = numArr[x + 1];
-                    numArr[x + 1] = temp;
+    const selectionSort = arr => {
+        for (let i = 0; i < arr.length; i++) {
+            let maxIndex = 0;
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[maxIndex]) {
+                    maxIndex = j
                 }
             }
+            [arr[maxIndex], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[maxIndex]];
         }
-        // console.log(numArr);
-        // console.timeEnd('Execution Time');
-        return numArr;
+        return arr
     }
 
     return (
         <div className='d-flex flex-column align-items-center'>
-            <h1>Bubble Sort</h1>
-            <h2>{arrayToString(bubbleSort(stringToArray(props.numbers)))}</h2>
+            <h1>Selection Sort</h1>
+            <h2>{arrayToString(selectionSort(stringToArray(props.numbers)))}</h2>
         </div>
     );
 }
 
-export default BubbleSort;
+export default SelectionSort;

@@ -6,38 +6,38 @@ import {
 
 // Sort components
 import BubbleSort from './components/BubbleSort';
+import SelectionSort from './components/SelectionSort';
 
 function App() {
-  const [temp,setTemp] = useState("");
-  const [numbers,setNumbers] = useState("");
+  const [temp, setTemp] = useState("");
+  const [numbers, setNumbers] = useState("");
 
-  const submitHandler = (e) =>{
+  const submitHandler = (e) => {
     e.preventDefault()
-    if (temp.length > 0){
-    setNumbers(temp)
-    // console.log(numbers);
-    setTemp("")
-    e.target.reset();
+    if (temp.length > 0) {
+      setNumbers(temp)
+      // console.log(numbers);
+      setTemp("")
+      e.target.reset();
     }
 
   }
-  
+
 
   return (
     <BrowserRouter>
       <div className='App'>
         <h1>Live Algos</h1>
-          <form onSubmit={(e) => submitHandler(e)}>
-            <label className=''>Numbers:</label>
-            <input className='ms-2' onChange={(e) => setTemp(e.target.value)}></input>
-            <input className='ms-2' type="submit" value="Submit" />
-          </form>
-          <p className='text-danger' >Only numbers seperated by a space</p>
-          <p className=''>Original: {numbers}</p>
+        <form onSubmit={(e) => submitHandler(e)}>
+          <label className=''>Numbers:</label>
+          <input className='ms-2' onChange={(e) => setTemp(e.target.value)}></input>
+          <input className='ms-2' type="submit" value="Submit" />
+        </form>
+        <p className='text-danger' >Only numbers seperated by a space</p>
+        <p className=''>Original: {numbers}</p>
       </div>
-      <div>
-        <BubbleSort className='mt-3' numbers={numbers}></BubbleSort>
-      </div>
+      <BubbleSort numbers={numbers}></BubbleSort>
+      <SelectionSort numbers={numbers}></SelectionSort>
     </BrowserRouter>
   );
 }
