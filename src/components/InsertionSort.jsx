@@ -3,8 +3,8 @@ import React from 'react';
 // import { useHistory } from 'react-router-dom';
 // import axios from 'axios';
 
-const BubbleSort = (props) => {
-    
+const InsertionSort = (props) => {
+    //     const [vName,setVName] = useState('');
     //     const history = useHistory();
     //     const {ParamNameFromRoute, otherParam, anotherParam} = useParams();
 
@@ -35,25 +35,23 @@ const BubbleSort = (props) => {
         return output
     }
 
-    const bubbleSort = numArr => {
-        for (let y = numArr.length - 1; y >= 0; y--) {
-            for (let x = 0; x < numArr.length; x++) {
-                let temp = numArr[x];
-                if (numArr[x] > numArr[x + 1]) {
-                    numArr[x] = numArr[x + 1];
-                    numArr[x + 1] = temp;
-                }
+    const insertionSort = (arr) => {
+        for (let x = 0; x < arr.length; x++) {
+            let y = x;
+            while (arr[y] < arr[y - 1]) {
+                [arr[y], arr[y - 1]] = [arr[y - 1], arr[y]]
+                y--
             }
         }
-        return numArr;
+        return arr
     }
 
     return (
         <div className='d-flex flex-column align-items-center'>
-            <h1>Bubble Sort</h1>
-            <h2>{arrayToString(bubbleSort(stringToArray(props.numbers)))}</h2>
+            <h1>Insertion Sort</h1>
+            <h2>{arrayToString(insertionSort(stringToArray(props.numbers)))}</h2>
         </div>
     );
 }
 
-export default BubbleSort;
+export default InsertionSort;
