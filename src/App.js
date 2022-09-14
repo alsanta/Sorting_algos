@@ -8,6 +8,7 @@ import {
 import BubbleSort from './components/BubbleSort';
 import SelectionSort from './components/SelectionSort';
 import InsertionSort from './components/InsertionSort';
+import MergSort from './components/MergSort';
 
 function App() {
   const [temp, setTemp] = useState("");
@@ -40,6 +41,7 @@ function App() {
       <BubbleSort numbers={numbers}></BubbleSort>
       <SelectionSort numbers={numbers}></SelectionSort>
       <InsertionSort numbers={numbers}></InsertionSort>
+      <MergSort numbers={numbers}></MergSort>
     </BrowserRouter>
   );
 }
