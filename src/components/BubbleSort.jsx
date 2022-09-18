@@ -1,39 +1,8 @@
 import React from 'react';
-// import { useParams } from 'react-router';
-// import { useHistory } from 'react-router-dom';
-// import axios from 'axios';
+import { stringToArray, arrayToString } from './HelperFunctions';
+
 
 const BubbleSort = (props) => {
-    
-    //     const history = useHistory();
-    //     const {ParamNameFromRoute, otherParam, anotherParam} = useParams();
-
-    const stringToArray = string => {
-        let output = [];
-        for (let i = 0; i < string.length; i++) {
-            if (string[i] !== " ") {
-                let num = "";
-                while (string[i] !== " ") {
-                    num += string[i];
-                    i++;
-                    if (i === string.length) { break; }
-                }
-                output.push(parseInt(num));
-            }
-        }
-        return output;
-    }
-
-    const arrayToString = input => {
-        let output = "";
-        for (let i = 0; i < input.length; i++) {
-            output += input[i]
-            if (i !== input.length - 1) {
-                output += " "
-            }
-        }
-        return output
-    }
 
     const bubbleSort = numArr => {
         for (let y = numArr.length - 1; y >= 0; y--) {
