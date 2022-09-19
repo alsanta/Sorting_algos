@@ -19,7 +19,7 @@ export const arrayToString = input => {
     for (let i = 0; i < input.length; i++) {
         output += input[i]
         if (i !== input.length - 1) {
-            output += " "
+            output += "-"
         }
     }
     return output

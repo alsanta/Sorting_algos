@@ -3,6 +3,7 @@ import { stringToArray, arrayToString } from './HelperFunctions';
 
 
 const InsertionSort = (props) => {
+    const t0 = performance.now()
 
     const insertionSort = (arr) => {
         for (let x = 0; x < arr.length; x++) {
@@ -14,6 +15,9 @@ const InsertionSort = (props) => {
         }
         return arr
     }
+
+    const t1 = performance.now()
+
 
     return (
         <div className='d-flex flex-column align-items-center'>

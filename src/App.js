@@ -25,11 +25,10 @@ function App() {
 
   }
 
-
   return (
     <BrowserRouter>
       <div className='App'>
-        <h1>Live Algos</h1>
+        <h1>Sorting Algos</h1>
         <form onSubmit={(e) => submitHandler(e)}>
           <label className=''>Numbers:</label>
           <input className='ms-2' onChange={(e) => setTemp(e.target.value)}></input>
